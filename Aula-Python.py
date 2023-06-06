@@ -1,6 +1,6 @@
 try:
-    number_1 = int(input('Digite o primeiro número: '))  
-    number_2 = int(input('Digite o segundo número: '))
+    number_1 = float(input('Digite o primeiro número: '))  
+    number_2 = float(input('Digite o segundo número: '))
     expression = input('Informe a expressão desejada: ')
     if expression == '+':
         result = number_1 + number_2
@@ -10,19 +10,19 @@ try:
         result = number_1 * number_2
     elif expression == '/':
         result = number_1 / number_2
-    print(f'Resultado é: {result}')
-except NameError and ValueError:
+    print(f'Resultado é: {result:.2f}')
+except (NameError, ValueError):
     print('Expressão ou Número Inválido')
     exit()
 while True:
     try:
-        sair = input('Deseja continuar? [s]im ou [n]ão: ')
-        if sair == 'n' and 'N':
+        exit = input('Deseja continuar? [y]Sim ou [n]Não: ')
+        if exit.lower() == 'y':
             break
-        elif sair != 's' and 'S':
+        elif exit.lower() != 'n':
             print('Comando não aceito!')
         else: 
-            number_continue = int(input('Informe o proximo número: '))
+            number_continue = float(input('Informe o proximo número: '))
             expression = input('Informe a expressão desejada: ')
             if expression == '+':
                 result = result + number_continue
@@ -34,7 +34,7 @@ while True:
                 result = result / number_continue
             else:
                 print('Expressão invalida')
-            print(f'o Resultado é: {result}')
+            print(f'o Resultado é: {result:.2f}')
     except (ValueError, NameError):
             print('Expressão ou número inválido')
             exit()
