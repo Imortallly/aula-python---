@@ -15,29 +15,26 @@ except (NameError, ValueError):
     print('Expressão ou Número Inválido')
     exit()
 while True:
-    try:
-        exit = input('Deseja continuar? [y]Sim ou [n]Não: ')
-        if exit.lower() == 'y':
-            break
-        elif exit.lower() != 'n':
-            print('Comando não aceito!')
-        else: 
-            number_continue = float(input('Informe o proximo número: '))
-            expression = input('Informe a expressão desejada: ')
-            if expression == '+':
-                result = result + number_continue
-            elif expression == '-':
-                result = result - number_continue
-            elif expression == '*':
-                result = result * number_continue
-            elif expression == '/':
-                result = result / number_continue
-            else:
-                print('Expressão invalida')
-            print(f'o Resultado é: {result:.2f}')
-    except (ValueError, NameError):
-            print('Expressão ou número inválido')
-            exit()
+    exit_expression = input('Deseja continuar? [y]Sim ou [n]Não: ')
+    if exit_expression.lower() == 'n':
+        break
+    elif exit_expression.lower() != 'y':
+        print('Comando não aceito!')
+    else: 
+        number_continue = float(input('Informe o proximo número: '))
+        expression = input('Informe a expressão desejada: ')
+        if expression == '+':
+            result = result + number_continue
+        elif expression == '-':
+            result = result - number_continue
+        elif expression == '*':
+            result = result * number_continue
+        elif expression == '/':
+            result = result / number_continue
+        else:
+            print('Expressão ou Número Inválido')
+            exit()  
+        print(f'o Resultado é: {result:.2f}')
 print('Calculadora finalizada! Se caso queria reiniciar aperte o Play')
 
 
